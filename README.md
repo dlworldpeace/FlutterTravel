@@ -64,12 +64,12 @@ In order to run this app, you need to:
 2. Fix all requirements from outputs of command `flutter doctor -v` to make all dependencies appearing green  
     <img src="readme/1.png" width="400"/>  
 3. Generate your personal/enterprise API key from [Google Maps Platform](https://cloud.google.com/maps-platform/pricing/)
-4. Save this API key to environmental variable for android build to use
-    4.1. Open `~/.bash_profile` using your preferred editor from terminal
-    4.2. Save this line: `export googleMapApiKey=Axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-    4.3. `source ~/.bash_profile` or reopen the terminal
-5. Save this API key to keys.plist dictionary for ios build to use
-    5.1. Open the `/ios` folder from Xcode
+4. Save this API key as environmental variable for android build to use  
+    4.1. Open `~/.bash_profile` using your preferred editor from terminal  
+    4.2. Save this line: `export googleMapApiKey=Axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`  
+    4.3. `source ~/.bash_profile` or reopen the terminal  
+5. Save this API key to keys.plist dictionary for ios build to use  
+    5.1. Open the `/ios` folder from Xcode  
     5.2. Create `keys.plist` under `/Runner` folder  
         <img src="readme/2.png" width="200"/>
         <img src="readme/3.png" width="300"/>
