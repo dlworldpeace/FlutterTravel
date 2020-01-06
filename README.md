@@ -33,7 +33,7 @@ To toggle the theme, change the `isDark` variable in `main.dart`.
 * A brain to think 🤓🤓
 
 ## 🤓 Author(s)
-**Olusegun Festus Babajide**
+**Olusegun Festus Babajide**  
 **Lawrence Xiao Delong**
 
 ## ☕️  Donate

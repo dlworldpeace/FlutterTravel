@@ -1,3 +1,4 @@
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_concept/screens/details.dart';
 import 'package:flutter_travel_concept/widgets/icon_badge.dart';
@@ -10,10 +11,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final TextEditingController _searchControl = new TextEditingController();
-
+  Position _currentPosition;
 
   @override
   Widget build(BuildContext context) {
+    _getCurrentLocation();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -21,6 +24,11 @@ class _HomeState extends State<Home> {
             Icons.menu,
           ),
           onPressed: (){},
+        ),
+
+        // TODO (lawrence): Remove this temporary display solution when not used
+        title: Text(
+          _currentPosition != null? "LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}" : "null"
         ),
 
         actions: <Widget>[
@@ -35,18 +43,6 @@ class _HomeState extends State<Home> {
 
       body: ListView(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Text(
-              "Where are you \ngoing?",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-
-
           Padding(
             padding: EdgeInsets.all(20),
             child: Container(
@@ -87,6 +83,17 @@ class _HomeState extends State<Home> {
             ),
           ),
           
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              "Around you in New York",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+
           Container(
             padding: EdgeInsets.only(top: 10, left: 20),
             height: 250,
@@ -284,5 +291,20 @@ class _HomeState extends State<Home> {
       ),
 
     );
+  }
+
+
+  void _getCurrentLocation() {
+    final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+    }).catchError((e) {
+      print(e);
+    });
   }
 }
