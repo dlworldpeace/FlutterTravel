@@ -26,7 +26,7 @@ dependencies:
   # The following plugin relies on Flutter's new mechanism for embedding Android and iOS views.
   # As that mechanism is currently in a developers preview, this plugin should also be
   # considered a developers preview.
-  google_maps_flutter: ^0.5.21
+  google_maps_flutter: ^0.5.21+15
   # A Flutter geolocation plugin which provides easy access to the platform specific location services
   geolocator: ^5.1.5
 
